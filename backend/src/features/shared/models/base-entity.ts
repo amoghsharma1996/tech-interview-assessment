@@ -5,5 +5,3 @@ export interface BaseModel {
   created_at: Date;
   last_modified_at: Date;
 }
-
-export interface InvoiceInstance extends Model<BaseModel>, BaseModel {}
