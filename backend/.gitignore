@@ -1,0 +1,25 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore compiled TypeScript files
+dist/
+
+# Ignore .env files that may contain sensitive information
+.env
+
+# Ignore log files
+*.log
+
+# Ignore any build artifacts or temporary files
+build/
+tmp/
+
+# Ignore operating system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore package-lock.json
+package-lock.json
+
+# Ignore IDE specific directory
+.vscode/
