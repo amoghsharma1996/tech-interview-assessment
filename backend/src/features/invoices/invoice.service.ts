@@ -4,9 +4,13 @@ import { Invoice } from './models/base-invoice-entity';
 
 export class InvoiceService {
   async getInvoices() {
+    // only return invoices that are PENDING
     try {
-      const invoices = await Invoice.findAll();
-
+      const invoices = await Invoice.findAll({
+        where: {
+          status: 'PENDING',
+        },
+      });
       return invoices;
     } catch (error) {
       console.error(error);
@@ -14,6 +18,7 @@ export class InvoiceService {
     }
   }
 
+  // when creating a new invoice, set it to status PENDING
   async addInvoice(addInvoiceRequest: AddInvoiceRequest) {
     try {
       const newInvoice = await Invoice.create({
@@ -27,6 +32,7 @@ export class InvoiceService {
     }
   }
 
+  // update an invoice's status
   async updateInvoiceStatus(
     id: string | number,
     updateInvoiceRequest: UpdateInvoiceRequest,

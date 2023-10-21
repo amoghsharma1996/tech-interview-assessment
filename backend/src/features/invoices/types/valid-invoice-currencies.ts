@@ -1,5 +1,3 @@
-import { InvoiceCurrencies } from '../enums/invoice-currencies';
+import { InvoiceCurrencies } from '../enums/invoice-currencies.enum';
 
-type ValidInvoiceCurrency = keyof typeof InvoiceCurrencies;
-
-export default ValidInvoiceCurrency;
+export type ValidInvoiceCurrency = keyof typeof InvoiceCurrencies;
