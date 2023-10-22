@@ -15,9 +15,17 @@ export const InvoiceManagerList = () => {
     await fetchInvoices();
   }, [fetchInvoices, invoiceId]);
 
-  if (isLoading) return <>Loading!</>;
+  if (isLoading)
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>Loading!</div>
+    );
 
-  if (!invoices.length) return <>There are no invoices, please create some!</>;
+  if (!invoices.length)
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        There are no invoices, please create some!
+      </div>
+    );
 
   return (
     <>

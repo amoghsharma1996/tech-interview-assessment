@@ -1,4 +1,4 @@
-export const BASE_INVOICE_URL = '/invoices';
+export const BASE_INVOICE_URL = '/Invoices';
 
 export const invoiceGETPath = () => `${BASE_INVOICE_URL}`;
 
