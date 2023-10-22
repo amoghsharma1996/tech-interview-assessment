@@ -11,14 +11,18 @@ The purpose of this assessment is to gain an understanding of your approach to d
 - If you have any questions about the assignment, you may also reach out to techassessment@2ulaundry.com
 
 ## The Assignment
-The business analyst assigned to your sprint team has presented you with two user stories to complete this sprint. This assessment asks you to complete these story cards to the best of your ability. 
+
+The business analyst assigned to your sprint team has presented you with two user stories to complete this sprint. This assessment asks you to complete these story cards to the best of your ability.
 
 ## User Story 1
+
 As a vendor supplying services to 2ULaundry I need to submit invoices via an API in order to receive payment in a timely manner.
 
 ### Acceptance Criteria
+
 1. The API accepts JSON formatted HTTP POST requests at the route '/Invoice'
-The following is a sample Invoice request that will be submitted to the API endpoint.
+   The following is a sample Invoice request that will be submitted to the API endpoint.
+
 ```javascript
 {
   "invoice_number": "12345",
@@ -38,14 +42,25 @@ The following is a sample Invoice request that will be submitted to the API endp
   "message": "invoice submitted successfully"
 }
 ```
-3. Store the invoices in a data store of your choice with an additional property and value "status": "pending" 
+
+3. Store the invoices in a data store of your choice with an additional property and value "status": "pending"
 
 ## User Story 2
+
 As a member of the 2ULaundry Accounting Team I need to see a list of invoices that have been submitted by vendors, but have not yet been approved for payment so that I can review and approve them.
 
 ### Acceptance Criteria
+
 1. Create an interface with react.js that shows a list of unapproved invoices that are submitted via API described in user story #1.
 2. Display the following fields for each invoice:"Invoice Number", "Vendor Name", "Vendor Address", "Invoice Total", "Invoice Date", "Due Date"
 3. Create a solution that allows the user to select and approve invoices. Once an invoice is "Approved" it should dissappear from the list of available invoices.
 4. When the user approves an invoice the "status" property for that invoice should be updated to "Approved"
 5. When an invoice is submitted via the API from user story #1, it should populate in the list of displayed invoices without requiring the user to manually refresh the list of invoices.
+
+## Notes from Amogh
+
+In order to run the app, open a terminal and navigate to the backend folder. Run the server using `npm run dev`. It will run on port 8000.
+
+In a second terminal, navigate to the frontend folder. Run the UI using `npm run dev`. It will automatically open up a browser tab with the UI display.
+
+In order to create invoices, make sure the backend server is started, and send cURL requests (or use Postman, Insomnia, etc) to http://localhost:8000.
