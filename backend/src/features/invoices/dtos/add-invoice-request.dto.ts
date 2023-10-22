@@ -1,5 +1,5 @@
 import { DateOnlyDataType } from 'sequelize';
-import ValidInvoiceCurrency from '../types/valid-invoice-currencies';
+import { ValidInvoiceCurrency } from '../types/valid-invoice-currencies';
 
 export interface AddInvoiceRequest {
   invoice_number: string;

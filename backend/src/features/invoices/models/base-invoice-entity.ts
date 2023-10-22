@@ -1,12 +1,12 @@
 import { Sequelize, DataTypes, DateOnlyDataType, Model } from 'sequelize';
 import { AppDB } from '../../../db';
-import ValidInvoiceCurrency from '../types/valid-invoice-currencies';
-import ValidInvoiceStatus from '../types/valid-invoice-statuses';
+import { ValidInvoiceCurrency } from '../types/valid-invoice-currencies';
+import { ValidInvoiceStatus } from '../types/valid-invoice-statuses';
 import { BaseModel } from '../../shared/models/base-entity';
-import { InvoiceCurrencies } from '../enums/invoice-currencies';
+import { InvoiceCurrencies } from '../enums/invoice-currencies.enum';
 import { InvoiceStatuses } from '../enums/invoice-statuses.enum';
 
-export interface InvoiceBaseModel {
+interface BaseInvoiceModel {
   invoice_number: string;
   total: string;
   currency: ValidInvoiceCurrency;
@@ -17,13 +17,11 @@ export interface InvoiceBaseModel {
   status: ValidInvoiceStatus;
 }
 
-export interface InvoiceInstance
-  extends Model<InvoiceBaseModel>,
-    InvoiceBaseModel {}
+interface InvoiceInstance extends Model<BaseInvoiceModel>, BaseInvoiceModel {}
 
 export const Invoice = AppDB.define<
   InvoiceInstance,
-  InvoiceBaseModel & BaseModel
+  BaseInvoiceModel & BaseModel
 >('Invoice', {
   id: {
     type: DataTypes.INTEGER,
@@ -57,16 +55,6 @@ export const Invoice = AppDB.define<
   remittance_address: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  created_at: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-  },
-  last_modified_at: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
   },
   status: {
     type: DataTypes.ENUM(...Object.values(InvoiceStatuses)),

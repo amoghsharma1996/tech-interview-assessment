@@ -18,5 +18,5 @@ App.use(parser())
   .use(router.allowedMethods())
   .use(errorMiddleware)
   .listen(port, () => {
-    console.log(`🚀 Server listening http://127.0.0.1:${port}/ 🚀`);
+    console.log(`Server is listening on http://127.0.0.1:${port}/`);
   });

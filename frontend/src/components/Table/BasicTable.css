@@ -1,0 +1,25 @@
+.basic-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+.basic-table th,
+.basic-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.basic-table th {
+  background-color: #f2f2f2;
+}
+
+.basic-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.select-column {
+  width: 50px;
+}

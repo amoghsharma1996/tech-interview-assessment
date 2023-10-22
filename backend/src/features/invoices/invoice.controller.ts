@@ -5,7 +5,7 @@ import Router from 'koa-router';
 
 const invoiceService = new InvoiceService();
 const invoiceRouter = new Router({
-  prefix: '/invoices',
+  prefix: '/Invoices',
 });
 
 // this route handles the GET of all invoices

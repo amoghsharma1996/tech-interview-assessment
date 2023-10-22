@@ -23,3 +23,6 @@ package-lock.json
 
 # Ignore IDE specific directory
 .vscode/
+
+# Ignore DB stuff
+database.sqlite
