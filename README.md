@@ -59,8 +59,8 @@ As a member of the 2ULaundry Accounting Team I need to see a list of invoices th
 
 ## Notes from Amogh
 
-In order to run the app, open a terminal and navigate to the backend folder. Run the server using `npm run dev`. It will run on port 8000.
+In order to run the app, open a terminal and navigate to the backend folder. Make sure to do `npm install` then run the server using `npm run dev`. It will run on port 8000.
 
-In a second terminal, navigate to the frontend folder. Run the UI using `npm run dev`. It will automatically open up a browser tab with the UI display, and if it doesn't, it will tell you what URL to open to see the UI.
+In a second terminal, navigate to the frontend folder. Make sure to do `npm install` then run the UI using `npm run dev`. It will automatically open up a browser tab with the UI display, and if it doesn't, it will tell you what URL to open to see the UI.
 
 In order to create invoices, make sure the backend server is started, and send cURL requests (or use Postman, Insomnia, etc) to http://localhost:8000.
