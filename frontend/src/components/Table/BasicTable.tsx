@@ -10,25 +10,34 @@ interface DataRow {
 interface BasicTableProps {
   columnHeaders: string[];
   data: DataRow[];
+  onRowSelect: (rowId: number) => void;
 }
 
-export const BasicTable = ({ columnHeaders, data }: BasicTableProps) => {
-  const [selectedRows, setSelectedRows] = useState<number[]>([]);
+export const BasicTable = ({
+  columnHeaders,
+  data,
+  onRowSelect,
+}: BasicTableProps) => {
+  const [selectedRow, setSelectedRow] = useState<number>(0);
   const properties = Object.keys(data[0]).filter((key) => key !== 'id');
 
+  // TODO: Enhancement would be to allow multi-select of invoices, would have to update API also to
+  // accept multiple invoice IDs
   const toggleRowSelection = (rowId: number) => {
-    if (selectedRows.includes(rowId)) {
-      setSelectedRows(selectedRows.filter((id) => id !== rowId));
+    if (selectedRow === rowId) {
+      setSelectedRow(0);
     } else {
-      setSelectedRows([...selectedRows, rowId]);
+      setSelectedRow(rowId);
     }
+
+    onRowSelect(rowId);
   };
 
   return (
     <table className="basic-table">
       <thead>
         <tr>
-          <th className="select-column">Select</th>
+          <th className="select-column" />
           {columnHeaders.map((header) => (
             <th key={header}>{header}</th>
           ))}
@@ -40,7 +49,7 @@ export const BasicTable = ({ columnHeaders, data }: BasicTableProps) => {
             <td>
               <input
                 type="checkbox"
-                checked={selectedRows.includes(row.id)}
+                checked={selectedRow === row.id}
                 onChange={() => toggleRowSelection(row.id)}
               />
             </td>
